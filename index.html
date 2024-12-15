@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Potatobird Library</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+        }
+        .search-container {
+            padding: 20px;
+            text-align: center;
+            background-color: #f4f4f4;
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .content {
+            padding-top: 20px; /* Removed extra padding since the search bar is sticky */
+        }
+        .search-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .search-container .library-title {
+            margin-right: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .search-container .search-wrapper {
+            display: flex;
+            align-items: center;
+            position: relative;
+            width: 50%;
+        }
+        .search-container .search-icon {
+            position: absolute;
+            left: 10px;
+            font-size: 18px;
+            color: #999;
+        }
+        .search-container input {
+            width: 100%;
+            padding: 10px 20px 10px 40px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .grid-item {
+            text-align: center;
+        }
+        .grid-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+        }
+        .grid-item label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        function searchImages() {
+            const searchQuery = document.getElementById('searchInput').value.toLowerCase();
+            const items = document.querySelectorAll('.grid-item');
+
+            items.forEach(item => {
+                const label = item.querySelector('label').innerText.toLowerCase();
+                if (label.includes(searchQuery)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        document.addEventListener('scroll', () => {
+            const searchContainer = document.querySelector('.search-container');
+            const currentScrollTop = window.scrollY;
+
+            if (currentScrollTop > 50) {
+                searchContainer.style.transform = 'translateY(0%)';
+            } else {
+                searchContainer.style.transform = 'translateY(0)';
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="search-container">
+        <span class="library-title">Potatobird Library</span>
+        <div class="search-wrapper">
+            <span class="search-icon">🔍</span>
+            <input 
+                type="text" 
+                id="searchInput" 
+                placeholder="Search images by label..." 
+                onkeyup="searchImages()"
+            >
+        </div>
+    </div>
+
+    <div class="grid">
+        <!-- Example image items -->
+        <div class="grid-item">
+            <img src="/images/potatobird.png" alt="Potatobird">
+            <label>Potatobird</label>
+        </div>
+        <div class="grid-item">
+            <img src="images/rubixcube.png" alt="rubixcubebird">
+            <label>Rubix Cube Bird</label>
+        </div>
+        <div class="grid-item">
+            <img src="images/upsidedowncursed.png" alt="upsidedowncursed">
+            <label>Upsidedown Cursed Bird</label>
+        </div>
+        <div class="grid-item">
+            <img src="/images/error_bird.png" alt="error_bird">
+            <label>error_bird</label>
+        </div>
+        <div class="grid-item">
+            <img src="images/tntbird.png" alt="tntbird">
+            <label>TNT Bird</label>
+        </div>
+        <div class="grid-item">
+            <img src="images/error.png" alt="error Bird">
+            <label>Error Bird</label>
+        </div>
+        <div class="grid-item">
+            <img src="/images/angel.png" alt="angel Bird">
+            <label>Angel Bird</label>
+        </div>
+        <div class="grid-item">
+            <img src="images/chez.png" alt="chez (cheese) bird">
+            <label>Chez (cheese) Bird</label>
+        </div>
+        <div class="grid-item">
+            <img src="images/bigforehead.png" alt="bigforehead Bird">
+            <label>Big Forehead Bird</label>
+        </div>
+        <div class="grid-item">
+            <img src="images/ksibird.png" alt="KSI Bird">
+            <label>KSI Bird</label>
+        </div>
+        <div class="grid-item">
+            <img src="images/levitating.png" alt="Levitating Bird">
+            <label>Levitating Bird</label>
+        </div>
+        <div class="grid-item">
+            <img src="images/whatevenisthis.png" alt="what even is this Bird">
+            <label>What even is this Bird</label>
+        </div>
+        <div class="grid-item">
+            <img src="images/kfc.png" alt="kfc Bird">
+            <label>KFC Bird</label>
+        </div>
+        <div class="grid-item">
+            <img src="images/looooooooooooooooong2.png" alt="looooooooooooooooong Bird">
+            <label>looooooooooooooooong Bird</label>
+        </div>
+        <div class="grid-item">
+            <img src="images/hitlerbird.png" alt="Hitler Bird">
+            <label>Hitler Bird</label>
+        </div>
+        <div class="grid-item">
+            <img src="images/bigsmile.png" alt="big smile Bird">
+            <label>Big Smile Bird</label>
+        </div>
+        <div class="grid-item">
+            <img src="images/laptop.png" alt="laptop Bird">
+            <label>Laptop Bird</label>
+        </div>
+        <div class="grid-item">
+            <img src="images/questionmarkbird.png" alt="? Bird">
+            <label>? Bird</label>
+        </div>
+        <div class="grid-item">
+            <img src="images/ballofcheese.png" alt="Ball of cheese Bird">
+            <label>Ball Of Cheese Bird</label>
+        </div>
+        <div class="grid-item">
+            <img src="images/moon.png" alt="moon Bird">
+            <label>Moon Bird</label>
+        </div>
+        <div class="grid-item">
+            <img src="images/earth.png" alt="earth Bird">
+            <label>Earth Bird</label>
+        </div>
+        <!-- Add more images manually by copying and modifying the grid-item blocks -->
+    </div>
+</body>
+</html>
